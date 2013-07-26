@@ -1,0 +1,25 @@
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName BARE.dev
+
+    DocumentRoot /vagrant/public
+    <Directory />
+        Options FollowSymLinks
+        AllowOverride All
+    </Directory>
+
+    <Directory /vagrant/public>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/site_error.log
+
+    # Possible values include: debug, info, notice, warn, error, crit,
+    # alert, emerg.
+    LogLevel warn
+
+    CustomLog ${APACHE_LOG_DIR}/site_access.log combined
+</VirtualHost>
